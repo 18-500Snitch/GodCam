@@ -12,19 +12,17 @@ void setupThreshold()
   {
     H[i] = 0;
     S[i] = 0;
-    V[i] = 0;
-  }
-  for(int i = 25; i < 48; i++)
-  {
-    H[i] = 1;
-  }
-  for(int i = 76; i < 256; i++)
-  {
-    S[i] = 1;
-  }
-  for(int i = 0; i < 256; i++)
-  {
     V[i] = 1;
+  }
+
+  // Threshold on red.
+  for(int i = 170; i < 184; i++)
+  {
+    H[i] = 0x1;
+  }
+  for(int i = 75; i < 256; i++)
+  {
+    S[i] = 0x1;
   }
 }
 
