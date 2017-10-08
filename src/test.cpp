@@ -56,6 +56,7 @@ int main(int argc, char** argv )
   {
     if(cap.grab())
     {
+      printf("%f\n",cap.get(CAP_PROP_POS_MSEC));
       if(cap.retrieve(frame))
       {
         bilateralFilter(frame,framePipe,6,100,100);
