@@ -88,14 +88,14 @@ bool SyncCams::read(vector<Mat> &out)
     }
     cout << "\n";
 
-    // for(size_t i = 0; i < numCaps; i++)
-    // {
-    //   while(timeDiff[i] >= max_frame_diff)
-    //   {
-    //     matQueue[i]->try_dequeue(frames[i]);
-    //     timeDiff[i] = newestT - frames[i].timestamp;
-    //   }
-    // }
+    for(size_t i = 0; i < numCaps; i++)
+    {
+      while(timeDiff[i] >= max_frame_diff)
+      {
+        matQueue[i]->try_dequeue(frames[i]);
+        timeDiff[i] = newestT - frames[i].timestamp;
+      }
+    }
     for(size_t i = 0; i < numCaps; i++)
     {
       out[i] = frames[i].frame.clone();
